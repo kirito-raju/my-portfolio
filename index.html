@@ -9,27 +9,42 @@
     Portfolio</title>
   <link rel="icon" type="image/x-icon" href="images/SSP.PNG">
 
-
-
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/skins/color-1.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-
-
   <link rel="stylesheet" href="css/skins/color-1.css" class="alternate-style" title="color-1" disabled>
   <link rel="stylesheet" href="css/skins/color-2.css" class="alternate-style" title="color-2" disabled>
   <link rel="stylesheet" href="css/skins/color-3.css" class="alternate-style" title="color-3" disabled>
   <link rel="stylesheet" href="css/skins/color-4.css" class="alternate-style" title="color-4" disabled>
   <link rel="stylesheet" href="css/skins/color-5.css" class="alternate-style" title="color-5" disabled>
-
   <link rel="stylesheet" href="css/style-switcher.css">
 
 </head>
 
 <body>
+
+<script>
+  document.querySelectorAll(".nav a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      document.querySelectorAll(".nav a").forEach(nav => nav.classList.remove("active"));
+      this.classList.add("active");
+
+      const section = document.querySelector(this.getAttribute("href"));
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+
+
+
   <!-- main container start-->
   <div class="main-container">
     <!--aside start-->
@@ -39,20 +54,16 @@
       </div>
       <div class="nav-toggler">
         <span></span>
-
       </div>
       <ul class="nav">
-        <li class="active"><a href="#home" class="asideh asideh1" id="1"><i class="fa fa-home"></i>Home</a></li>
-        <li class="active"><a href="#about" class="asideh" id="2"><i class="fa fa-user"></i>About</a></li>
-        <li class="active"><a href="#course" class="asideh" id="3"><i class="fa fa-list"></i>Certifications</a></li>
-        <!-- <li><a href="#"><i class="fa fa-briefcase"></i>Portfolio</a></li> -->
-        <li class="active"><a href="#contact" class="asideh" id="4"><i class="fa fa-comments"></i>Contact</a></li>
-
+        <li><a href="#home" class="active asideh asideh1" id="1"><i class="fa fa-home"></i>Home</a></li>
+        <li><a href="#about" class="asideh" id="2"><i class="fa fa-user"></i>About</a></li>
+        <li><a href="#course" class="asideh" id="3"><i class="fa fa-list"></i>Certifications</a></li>
+        <li><a href="#contact" class="asideh" id="4"><i class="fa fa-comments"></i>Contact</a></li>
       </ul>
-
     </div>
-
     <!--aside end-->
+
     <!--main content start -->
     <div class="main-content">
       <!--home section start-->
@@ -582,7 +593,7 @@
             <!-- <div class="contact-info-item padd-15">
               <div class="icon"><i class="fa fa-user"></i></div>
               <h4>Portfolio</h4>
-              <p><a href="https://sarvani.vercel.app" target="_blank">sarvani.vercel.app</a></p>
+              <p><a href="https://esakki.vercel.app" target="_blank">esakki.vercel.app</a></p>
             </div> -->
             <div class="contact-info-item padd-15">
               <div class="icon"><i class="fa fa-medium"></i></div>
@@ -594,7 +605,7 @@
             <!-- <div class="contact-info-item padd-15">
               <div class="icon"><i class="fa fa-th"></i></div>
               <h4>Bento</h4>
-              <p><a href="https://bento.me/sarvani" target="_blank">bento.me/sarvani</a></p>
+              <p><a href="https://bento.me/esakki" target="_blank">bento.me/esakki</a></p>
             </div> -->
             <div class="contact-info-item padd-15">
               <div class="icon"><i class="fa fa-envelope"></i></div>
@@ -695,7 +706,7 @@
   <script src="js/style-switcher.js"></script>
   <script>
     // Replace 'YOUR_MEDIUM_ARTICLE_URL' with the URL of the Medium article you want to fetch
-    const mediumArticleUrl = 'https://medium.com/@sarvaniswapnapriya14/unravelling-jaeger-a-closer-look-at-distributed-tracing-1fc9ccaad53b';
+    const mediumArticleUrl = '';
 
     // Fetch the Medium article content using the Medium API
     fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(mediumArticleUrl)}`)
